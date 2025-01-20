@@ -1,6 +1,7 @@
 # interactsh-web
 
-Run:
+
+Change network name and Run:
 ```
 docker compose up --build
 ```
