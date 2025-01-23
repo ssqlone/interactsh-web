@@ -1,12 +1,12 @@
 services:
-  interactsh-web:
+  interactsh:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: interactsh-web:latest
-    container_name: interactsh-web
+    image: interactsh:latest
+    container_name: interactsh
     expose:
-      - 3000
+      - 80
     networks:
       - proxy
     environment:
@@ -14,12 +14,7 @@ services:
       - PGID=1000
       - TZ=Asia/Baku
     volumes:
-      - './int-web-data:/data'
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/"]
-      interval: 5s
-      timeout: 20s
-      retries: 10
+      - './interactsh:/app/data'
 networks:
   proxy:
     external: true
