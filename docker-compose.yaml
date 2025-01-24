@@ -1,0 +1,19 @@
+services:
+  interactsh:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: interactsh:latest
+    container_name: interactsh
+    ports:
+      - 127.0.0.1:80:80
+    networks:
+      - proxy
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Baku
+    volumes:
+      - './interactsh:/app/data'
+networks:
+  proxy:
