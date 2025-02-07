@@ -1,5 +1,9 @@
-pipeline:
-  build:
+when:
+  - event: push
+    branch: main
+
+steps:
+  - name: build
     image: node:16
     commands:
       - npm install --legacy-peer-deps
@@ -7,7 +11,7 @@ pipeline:
     when:
       event: [push, pull_request]
 
-  test:
+  - name: test
     image: node:16
     commands:
       - npm install --legacy-peer-deps
@@ -17,7 +21,7 @@ pipeline:
     depends_on:
       - build
 
-  lint:
+  - name: lint
     image: node:16
     commands:
       - npm install --legacy-peer-deps
