@@ -7,7 +7,6 @@ FROM nginx:alpine
  
  RUN curl -L https://github.com/ssqlone/interactsh-web/releases/download/1.0.1/1.0.1.zip -o interactsh.zip && \
      unzip -o interactsh.zip && \
-     mv interactsh/* ./ && \
      rm interactsh.zip
      
  EXPOSE 80
