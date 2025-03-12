@@ -5,7 +5,7 @@ FROM nginx:alpine
  RUN apk update && \
      apk add --no-cache curl unzip
  
- RUN curl -L https://github.com/ssqlone/interactsh-web/releases/download/1.0.1/1.0.1.zip -o interactsh.zip && \
+ RUN curl -L https://github.com/ssqlone/interactsh-web/releases/download/1.0.1/interactsh.zip -o interactsh.zip && \
      unzip -o interactsh.zip && \
      mv interactsh/* ./ && \
      rm interactsh.zip
